@@ -20,9 +20,9 @@ body, html {
     background: rgba(51, 51, 51, 0.2); /* Şeffaf arka plan */
     padding: 1em;
     display: flex;
-    justify-content: center; /*yatay*/
+    justify-content: space-between; /* Sağ ve sola yayılır */
     align-items: center;
-    position: fixed; /*navbarı üste sabitledik*/
+    position: fixed; /* Navbarı üste sabitledik */
     top: 0;
     width: 100%;
     z-index: 1000;
@@ -32,7 +32,8 @@ body, html {
 
 .navbar .buttons {
     display: flex;
-    gap: 3em;
+    gap: 1em;
+    margin-right: 5vh ;
 }
 
 .navbar button {
@@ -42,7 +43,7 @@ body, html {
     border-radius: 60px;
     padding: 0.7em 1.5em;
     cursor: pointer;
-    transition: all 0.4s ease;
+    transition: all 0.3s ease;
     font-size: 1.5em;
     font-weight: 400;
     
@@ -65,7 +66,7 @@ body, html {
 
 .navbar:hover {
     background: rgba(51, 51, 51, 0); /* Navbar'ı şeffaf yap */
-    backdrop-filter: blur(0px);/*üzerine geldiğinde bulanık olsun*/
+    backdrop-filter: blur(0px); /* Üzerine geldiğinde bulanık olsun */
 }
 
 .navbar button:hover {
@@ -81,26 +82,23 @@ body, html {
     z-index: 1;
 }
 
-/* .navbar button:hover::before {
-    transform: translate(-50%, -50%) scale(2);
-} */
-
-/* Mevcut CSS */
-
-.dropdown {
+/* Dropdown Menü Stilleri */
+.navbar .dropdown {
     position: relative;
     display: inline-block;
+    margin-right: auto; /* Sol tarafa yasla */
+        padding-left: 100px
 }
 
-.dropbtn {
-    background-color: #2782bf;
-    color: #ffffff;
+.navbar .dropdown .dropbtn {
+    background-color:#2c2424 ;
+    color: #fefefe;
     padding: 0.7em 1.5em;
-    font-size: 1.5em;
+    font-size: 1.25em;
     border: none;
     cursor: pointer;
-    border-radius: 60px;
-    font-weight: 400;
+    border-radius: 8px;
+    font-weight: 300;
 }
 
 .dropdown-content {
@@ -110,7 +108,7 @@ body, html {
     min-width: 160px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     z-index: 1;
-    border-radius: 10px;
+    border-radius:10px;
     overflow: hidden;
 }
 
@@ -132,7 +130,6 @@ body, html {
 .dropbtn:hover {
     background-color: #0d10ed;
 }
-
 
 .dropdown-content a.active {
     background-color: #ddd;

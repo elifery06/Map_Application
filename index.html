@@ -11,17 +11,17 @@
 </head>
 <body>
     <div class="navbar">
-        <div class="buttons">
-            <div class="dropdown">
-                <button id="addpoint" class="dropbtn">Add Point</button>
-                <div class="dropdown-content">
-                    <a href="#" data-value="Point">Point</a>
-                    <a href="#" data-value="LineString">LineString</a>
-                    <a href="#" data-value="Polygon">Polygon</a>
-                    <a href="#" class="active" data-value="Circle">Circle</a>
-
-                </div>
+        <div class="dropdown">
+            <button class="dropbtn">choose drawing</button>
+            <div class="dropdown-content">
+                <a href="#" data-value="Point">Point</a>
+                <a href="#" data-value="LineString">LineString</a>
+                <a href="#" data-value="Polygon">Polygon</a>
+                <a href="#" data-value="Circle">Circle</a>
             </div>
+        </div>
+        <div class="buttons">
+            <button id="addpoint">Add Point</button>
             <button id="query">Query</button>
         </div>
     </div>

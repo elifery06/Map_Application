@@ -34,6 +34,9 @@ const map = new ol.Map({
     }),
 });
 
+// Global değişken paneli saklamak için
+let currentPanel = null;
+
 const ExampleModify = {
     init: function () {
         this.select = new ol.interaction.Select();
@@ -80,7 +83,7 @@ const ExampleDraw = {
     },
     addDrawEndListener: function (interaction) {
         interaction.on('drawend', function (event) {
-             vector.getSource().clear();
+            vector.getSource().clear();
             let geom = event.feature.getGeometry();
 
             // Eğer geometri tipi 'Circle' ise, bunu Polygon'a dönüştür
@@ -90,13 +93,18 @@ const ExampleDraw = {
 
             const wkt = wktFormat.writeGeometry(geom);
             console.log("Çizilen şeklin WKT formatı: ", wkt);
-            
-            // Burada jsPanel oluşturuluyor ve WKT formatı panele ekleniyor
-            jsPanel.create({
-                headerTitle: 'Çizim Tamamlandı - WKT Formatı',
+
+            // Önceden oluşturulmuş panel varsa kapat
+            if (currentPanel) {
+                currentPanel.close();
+            }
+
+            // Yeni jsPanel oluşturuluyor ve WKT formatı panele ekleniyor
+            currentPanel = jsPanel.create({
+                headerTitle: 'Coordinates',
                 contentSize: '400 200',
                 content: `<p>WKT: ${wkt}</p>`,
-                position: 'center-top 0 58',
+                position: 'center 0 58',
             });
         });
     },

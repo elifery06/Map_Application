@@ -1,11 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Türkiye Haritası</title>
-    <script src="https://cdn.jsdelivr.net/npm/jspanel4@4.15.0/dist/extensions/modal/jspanel.modal.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/ol@v10.1.0/dist/ol.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v10.1.0/ol.css">
     <link href="https://cdn.jsdelivr.net/npm/jspanel4@4.15.0/dist/jspanel.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
@@ -13,13 +12,24 @@
 <body>
     <div class="navbar">
         <div class="buttons">
-            <button>Add Point</button>
-            <button>Query</button>
+            <div class="dropdown">
+                <button id="addpoint" class="dropbtn">Add Point</button>
+                <div class="dropdown-content">
+                    <a href="#" data-value="Point">Point</a>
+                    <a href="#" data-value="LineString">LineString</a>
+                    <a href="#" data-value="Polygon">Polygon</a>
+                    <a href="#" class="active" data-value="Circle">Circle</a>
+
+                </div>
+            </div>
+            <button id="query">Query</button>
         </div>
     </div>
 
     <div id="map" class="map"></div>
-
+    <script src="https://cdn.jsdelivr.net/npm/jspanel4@4.15.0/dist/jspanel.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ol@v10.1.0/dist/ol.js"></script>
     <script src="app.js"></script>
 </body>
 </html>
+

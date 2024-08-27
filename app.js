@@ -92,7 +92,7 @@ const ExampleDraw = {
             }
 
             const wkt = wktFormat.writeGeometry(geom);
-            console.log("Çizilen şeklin WKT formatı: ", wkt);
+            console.log(" WKT : ", wkt);
 
             // Önceden oluşturulmuş panel varsa kapat
             if (currentPanel) {
@@ -103,8 +103,28 @@ const ExampleDraw = {
             currentPanel = jsPanel.create({
                 headerTitle: 'Coordinates',
                 contentSize: '400 200',
-                content: `<p>WKT: ${wkt}</p>`,
+                content: `
+                    <div>
+                        <label for="wktInput">WKT:</label>
+                        <input id="wktInput" type="text" value="${wkt}" readonly style="width: 100%; margin-bottom: 10px;">
+                    </div>
+                    <div>
+                        <label for="nameInput">Name:</label>
+                        <input id="nameInput" type="text" style="width: 100%; margin-bottom: 10px;">
+                    </div>
+                    <button id="saveButton" style="width: 100%;">Save</button>
+                `,
                 position: 'center 0 58',
+            });
+
+            // Save butonuna tıklama olayı ekleyin
+            document.getElementById('saveButton').addEventListener('click', function () {
+                const wktValue = document.getElementById('wktInput').value;
+                const nameValue = document.getElementById('nameInput').value;
+                console.log(`Saved WKT: ${wktValue}`);
+                console.log(`Saved Name: ${nameValue}`);
+                // Burada, verileri işlemek için ek kod ekleyebilirsiniz
+                currentPanel.close(); // Paneli kapat
             });
         });
     },

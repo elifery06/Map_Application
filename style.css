@@ -1,0 +1,90 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+#map {
+  width: 100%;
+  height: 100vh; 
+
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f0f0f0;
+}
+
+.navbar {
+    background: rgba(51, 51, 51, 0.2); /* Şeffaf arka plan */
+    padding: 1em;
+    display: flex;
+    justify-content: center; /*yatay*/
+    align-items: center;
+    position: fixed; /*navbarı üste sabitledik*/
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px); /* Arkadaki içeriği bulanıklaştırır */
+}
+
+.navbar .buttons {
+    display: flex;
+    gap: 3em;
+}
+
+.navbar button {
+    background-color: #2782bf;
+    color: #ffffff;
+    border: none;
+    border-radius: 60px;
+    padding: 0.7em 1.5em;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    font-size: 1.5em;
+    font-weight: 400;
+    
+    position: relative;
+    overflow: hidden;
+   
+}
+
+.navbar button::before {
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background-color: rgba(0, 0, 0, 0.2);
+    transition: all 0.7s ease;
+    border-radius: 50%;
+    z-index: 0;
+    transform: translate(-50%, -50%) scale(0);
+}
+
+
+
+.navbar:hover {
+    background: rgba(51, 51, 51, 0); /* Navbar'ı şeffaf yap */
+    backdrop-filter: blur(0px);/*üzerine geldiğinde bulanık olsun*/
+}
+.navbar button:hover {
+    color: #fff;
+    background-color: #0d10ed;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05); 
+    font-weight: bold;
+}
+
+.navbar button span {
+    position: relative;
+    z-index: 1;
+}
+
+/* .navbar button:hover::before {
+    transform: translate(-50%, -50%) scale(2);
+} */
+

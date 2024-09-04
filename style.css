@@ -33,19 +33,19 @@ body, html {
 .navbar .buttons {
     display: flex;
     gap: 1em;
-    margin-right: 5vh ;
+    margin-right: 30% ;
 }
 
 .navbar button {
-    background-color: #2782bf;
+    background-color: #2c2424;
     color: #ffffff;
     border: none;
-    border-radius: 60px;
-    padding: 0.7em 1.5em;
+    border-radius: 8px;
+    padding: 0.6em 1.6em;
     cursor: pointer;
     transition: all 0.3s ease;
-    font-size: 1.5em;
-    font-weight: 400;
+    font-size: 1.4em;
+    font-weight: 300;
     
     position: relative;
     overflow: hidden;
@@ -71,7 +71,7 @@ body, html {
 
 .navbar button:hover {
     color: #fff;
-    background-color: #0d10ed;
+    background-color: #000000;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
     transform: scale(1.05); 
     font-weight: bold;
@@ -87,7 +87,7 @@ body, html {
     position: relative;
     display: inline-block;
     margin-right: auto; /* Sol tarafa yasla */
-        padding-left: 100px
+        margin-left: 30%
 }
 
 .navbar .dropdown .dropbtn {
@@ -179,12 +179,127 @@ label {
 }
 
 #saveButton:hover {
-    background-color: #0056b3;
+    background-color: #dbde12;
 }
 
 #saveButton:active {
-    background-color: #00408d;
+    background-color:#41cf2c;
+}
+
+/* Tabloyu genişlet */
+table.display {
+    width: 100% !important;
+    border-collapse: collapse;
+}
+
+/* Buton stilleri */
+table.display .actions-btns {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+
+table.display .actions-btns button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+table.display .show-btn {
+    background-color: #4CAF50; /* Yeşil */
+}
+
+table.display .update-btn {
+    background-color: #FFC107; /* Sarı */
+}
+
+table.display .delete-btn {
+    background-color: #F44336; /* Kırmızı */
+}
+/* DataTable'ı içeren div'in yüksekliğini ve genişliğini ayarlama */
+#dataTableContainer {
+    width: 100%; /* Tablo konteynerinin genişliğini tam yapar */
+    height: 100%; /* Tablo konteynerinin yüksekliğini tam yapar */
+    overflow: hidden; /* Kaydırma çubuklarını gizler */
+}
+
+/* DataTable'ın yüksekliğini ayarlama */
+#myTable {
+    width: 100% !important; /* Tabloyu konteyner genişliğine uyacak şekilde ayarlar */
+    table-layout: fixed; /* Tablo hücrelerinin genişliğini sabitler, kaydırma çubuklarını engeller */
+}
+
+/* Tabloda alt kaydırma çubuğunu gizleme */
+.dataTables_wrapper {
+    overflow: hidden; /* Kaydırma çubuklarını gizler */
+}
+
+.ol-popup {
+    position: absolute;
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid #dddddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    bottom: 12px;
+    left: -50px;
+    min-width: 300px;
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    color: #333;
+}
+
+.ol-popup:after, .ol-popup:before {
+    top: 100%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+.ol-popup:after {
+    border-color: rgba(255, 255, 255, 0);
+    border-top-color: white;
+    border-width: 10px;
+    left: 60px;
+    margin-left: -10px;
+}
+
+.ol-popup:before {
+    border-color: rgba(221, 221, 221, 0);
+    border-top-color: #dddddd;
+    border-width: 11px;
+    left: 60px;
+    margin-left: -11px;
+}
+
+.ol-popup-closer {
+    text-decoration: none;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    font-size: 16px;
+    color: #999999;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.ol-popup-closer:hover {
+    color: #333333;
 }
 
 
 
+/* Zoom butonlarını daha alta yerleştirmek için */
+.ol-zoom {
+    margin-top: 20%;
+    position: absolute;
+    z-index: 1001; /* Butonların navbar'ın üstünde kalmasını sağlar */
+}
